@@ -1,0 +1,3 @@
+@startuml
+vanessa->kevin:hello
+@enduml

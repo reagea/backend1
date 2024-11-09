@@ -1,0 +1,103 @@
+/*caso de uso*/
+
+
+@startuml
+
+actor Administrador
+actor Cliente
+
+Administrador --> (Ofrecer tickets)
+Administrador --> (Mostrar evento)
+(Offer tickets) --> (Pagar tickets con tarjeta o transferencia)
+(Mostrar evento) --> (Tipo, lugar, ubicación)
+
+Cliente --> (Registrarse)
+Cliente --> (Consultar eventos)
+Cliente --> (Comprar tickets)
+(Comprar tickets) --> (Devolver tickets)
+
+@enduml
+
+
+@startuml
+
+class Evento {
+  -nombre: String
+  -fecha: Date
+  -lugar: String
+  -descripcion: String
+  -capacidad: int
+
+  +crearEvento()
+  +modificarEvento()
+  +cancelarEvento()
+  +mostrarDetalles()
+}
+
+@enduml
+
+/*diagrama de clases/*
+
+@startuml
+
+class Usuario {
+  -nombre: String
+  -email: String
+  -password: String
+  -fechaRegistro: Date
+
+  +registrarse()
+  +iniciarSesion()
+  +actualizarPerfil()
+  +eliminarCuenta()
+}
+
+@enduml
+
+
+@startuml
+
+class Administrador {
+  -nivelAcceso: int
+
+  +gestionarUsuarios()
+  +generarReportes()
+}
+
+Usuario <|-- Administrador
+
+@enduml
+
+
+@startuml
+
+class Ticket {
+  -numero: int
+  -fechaCompra: Date
+  -precio: float
+  -estado: String
+
+  +comprar()
+  +cancelar()
+  +mostrarDetalles()
+}
+
+@enduml
+
+/*especificacion de caso de uso*/
+
+@startuml
+
+actor Cliente
+
+Cliente --> (Comprar Tickets) : Selecciona evento
+(Comprar Tickets) --> (Mostrar Detalles Evento) : Muestra detalles evento
+(Comprar Tickets) --> (Seleccionar Número de Tickets) : Selecciona número de tickets
+(Comprar Tickets) --> (Ingresar Información de Pago) : Ingresa información de pago
+(Comprar Tickets) --> (Validar Información de Pago) : Valida información de pago
+(Comprar Tickets) --> (Confirmar Compra) : Confirma compra
+(Comprar Tickets) --> (Generar Tickets) : Genera tickets
+(Comprar Tickets) --> (Enviar Confirmación) : Envía confirmación
+
+@enduml
+

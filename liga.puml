@@ -1,0 +1,36 @@
+
+@startuml "liga"
+hide methods
+class Liga{
+ - nombre : String
+}
+class Partido{
+    -fecha: Date 
+}
+class Estado_Partido{
+ -suspedido
+ -jugado    
+ -pendiente
+}
+class Equipo{
+    -nombre_equipo
+}
+
+Partido"1..*" -> "1" Liga
+Partido "0..*" ->"1" Estado_Partido
+Partido"0..*   Primer Equipo" ->"  1" Equipo
+Partido"0..*   Segundo Equipo" ->"  1" Equipo
+
+note as nota1
+PARAMETROS
+Precondicion
+-Se a creado la liga
+-Se han creado los equipo
+Post-condicion 
+-
+end note
+note as nota2
+ESPECIFICACIONES
+
+end note 
+@enduml

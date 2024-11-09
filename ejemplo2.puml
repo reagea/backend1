@@ -1,0 +1,13 @@
+@startuml
+
+hide methods
+class Habitacion {
+    - numero: Float
+}
+
+class Servicio {
+    -fecha: Date
+}
+
+Servicio "0..*" -->"1" Habitacion
+@enduml
